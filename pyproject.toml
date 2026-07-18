@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "psp-proxy"
+version = "0.3.0"
+description = "A fast HTTPS bridge + podcast station for old Sony PSPs."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["psp", "proxy", "podcast", "retro", "rss"]
+dependencies = [
+    "aiohttp>=3.9",
+    "feedparser>=6.0",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "yarl>=1.9",
+]
+
+[project.scripts]
+psp-proxy = "psp_proxy:main"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["psp_proxy.py"]
+
+[tool.hatch.build.targets.sdist]
+only-include = ["psp_proxy.py", "README.md"]
