@@ -38,6 +38,27 @@ pipx run --spec git+https://github.com/<you>/psp-proxy psp-proxy
 
 Don't have uv yet? `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
+## Ship it to a Raspberry Pi
+
+Option 1 — copy the script (no remote needed; `uv run` resolves the inline
+dependencies on first launch):
+
+```bash
+ssh pi@<pi-ip> mkdir -p /opt/psp-proxy
+scp psp_proxy.py pi@<pi-ip>:/opt/psp-proxy/
+ssh pi@<pi-ip> uv run /opt/psp-proxy/psp_proxy.py
+```
+
+Option 2 — run straight from the repo:
+
+```bash
+uvx --from git+https://github.com/<you>/psp-proxy psp-proxy
+```
+
+To keep it running after reboots, install it as a systemd service — see
+`TODO_pi_setup.md` for the unit file and the full retro-AP setup
+(hostapd WPA-TKIP network, dnsmasq, captive portal).
+
 ## Point the PSP at it
 
 This is a **portal you browse to**, not a proxy setting.
