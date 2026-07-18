@@ -8,7 +8,7 @@ version = "0.3.0"
 description = "A fast HTTPS bridge + podcast station for old Sony PSPs."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = { text = "AGPL-3.0-or-later" }
 keywords = ["psp", "proxy", "podcast", "retro", "rss"]
 dependencies = [
     "aiohttp>=3.9",
@@ -25,4 +25,4 @@ psp-proxy = "psp_proxy:main"
 only-include = ["psp_proxy.py"]
 
 [tool.hatch.build.targets.sdist]
-only-include = ["psp_proxy.py", "README.md"]
+only-include = ["psp_proxy.py", "README.md", "LICENSE"]

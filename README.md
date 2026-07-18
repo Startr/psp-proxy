@@ -26,14 +26,14 @@ Ephemeral run straight from the repo, no clone (uvx = `uv tool run`, the npx of
 Python and the modern pipx replacement):
 
 ```bash
-uvx --from git+https://github.com/<you>/psp-proxy psp-proxy
+uvx --from git+https://github.com/Startr/psp-proxy psp-proxy
 ```
 
 Prefer pipx? It works too:
 
 ```bash
-pipx run --spec git+https://github.com/<you>/psp-proxy psp-proxy
-# or install it:  pipx install git+https://github.com/<you>/psp-proxy
+pipx run --spec git+https://github.com/Startr/psp-proxy psp-proxy
+# or install it:  pipx install git+https://github.com/Startr/psp-proxy
 ```
 
 Don't have uv yet? `curl -LsSf https://astral.sh/uv/install.sh | sh`
@@ -52,7 +52,7 @@ ssh pi@<pi-ip> uv run /opt/psp-proxy/psp_proxy.py
 Option 2 — run straight from the repo:
 
 ```bash
-uvx --from git+https://github.com/<you>/psp-proxy psp-proxy
+uvx --from git+https://github.com/Startr/psp-proxy psp-proxy
 ```
 
 To keep it running after reboots, install it as a systemd service — see
@@ -128,4 +128,5 @@ psp-proxy [-p PORT] [--host ADDR] [--no-images]
 Python ≥ 3.11. Dependencies (aiohttp, feedparser, beautifulsoup4, lxml) are
 handled automatically by `uv run` / `uvx` / `pipx`.
 
-MIT licensed.
+Licensed under the AGPL-3.0-or-later — if you run a modified version as a
+network service, you must offer its source to users.
