@@ -49,10 +49,11 @@ scp psp_proxy.py pi@<pi-ip>:/opt/psp-proxy/
 ssh pi@<pi-ip> uv run /opt/psp-proxy/psp_proxy.py
 ```
 
-Option 2 — run straight from the repo:
+Option 2 — run straight from the repo (pin a tag so a later push can't
+change what your Pi runs):
 
 ```bash
-uvx --from git+https://github.com/Startr/psp-proxy psp-proxy
+uvx --from git+https://github.com/Startr/psp-proxy@v0.3.0 psp-proxy
 ```
 
 To keep it running after reboots, install it as a systemd service — see
@@ -122,6 +123,12 @@ psp-proxy [-p PORT] [--host ADDR] [--no-images]
 - `-p, --port`   port to listen on (default 8080)
 - `--host`       bind address (default 0.0.0.0 — all interfaces, for LAN)
 - `--no-images`  drop images everywhere (use if the PSP-1000 runs out of memory)
+
+## Security note
+
+This is an **open proxy by design**: anyone who can reach the port can fetch
+any URL through `/proxy` and `/browse` — including hosts on your own network.
+Run it on a trusted LAN only. **Never port-forward it to the internet.**
 
 ## Requirements
 
